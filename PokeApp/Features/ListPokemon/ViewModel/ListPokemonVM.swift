@@ -44,11 +44,8 @@ class ListPokemonVM{
                 for pokemon in listPokemon {
                     self.listPokemonResponse.append(pokemon)
                     if let idPokemon = pokemon.url?.split(separator: "/").last{
-                        print("ID POKEMON : \(idPokemon)")
                         self.getPokemonDetail(idPokemon: String(idPokemon)) { pokemon in
                             self.listPokemonWithImage.append(pokemon)
-                            print("pokemon name : \(pokemon.name)")
-                            print("IAMGE : \(self.listPokemonWithImage.count) vs \(self.listPokemonResponse.count)")
                             if self.listPokemonWithImage.count == self.listPokemonResponse.count{
                                 completion(self.listPokemonWithImage)
                             }
@@ -56,8 +53,6 @@ class ListPokemonVM{
                     }
                     
                 }
-                
-//                completion(self.listPokemonResponse)
             } else {
                 completion([])
             }
@@ -81,14 +76,3 @@ class ListPokemonVM{
         }
     }
 }
-
-
-class ListPokemonViewModel {
-
-    let pokemons: ListPokemonResults
-
-    init(pokemons: ListPokemonResults) {
-        self.pokemons = pokemons
-    }
-}
-

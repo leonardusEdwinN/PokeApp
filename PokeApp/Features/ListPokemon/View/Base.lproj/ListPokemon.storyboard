@@ -54,11 +54,22 @@
                     <connections>
                         <outlet property="listPokemonTableView" destination="g7p-Ig-EXJ" id="gLO-8l-pjx"/>
                         <outlet property="navigationView" destination="dqm-q8-TtZ" id="wMm-ye-t6q"/>
+                        <segue destination="w76-sr-bTl" kind="show" identifier="GoToPokemonDetail" id="RSg-As-UH0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="-2"/>
+        </scene>
+        <!--DetailPokemonVC-->
+        <scene sceneID="Ee0-Zl-RqG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DetailPokemon" referencedIdentifier="DetailPokemonVC" id="w76-sr-bTl" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="cGw-we-vBX"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8gR-6F-Sgi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="723" y="-39"/>
         </scene>
     </scenes>
     <resources>

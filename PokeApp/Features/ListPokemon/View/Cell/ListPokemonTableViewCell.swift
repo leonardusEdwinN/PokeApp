@@ -34,9 +34,7 @@ class ListPokemonTableViewCell: UITableViewCell {
     
     func resetUI(){
         self.pokemonNameLabel.text = ""
-//        self.newsSource.text = ""
-//        self.newsAuthor.text = ""
-//        self.newsCreatedAt.text = ""
+        self.pokemonImageView.image = UIImage(named:"ic_no_Image")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -51,50 +49,9 @@ class ListPokemonTableViewCell: UITableViewCell {
             self.pokemonNameLabel.text = title
             
             guard let imageURL = URL(string: imageUrl) else { return }
-            self.pokemonImageView.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "noImage"))
-        
-//            self.newsSource.text = description
-//            self.newsAuthor.text = author
-//            
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-//            dateFormatter.timeZone = TimeZone(abbreviation: "WIB")
-//            let dateTemp = dateFormatter.date(from: createdAt)
-//            
-//            
-//            dateFormatter.dateFormat = "EEEE, MMM d, yyyy HH:mm:ss"
-//            self.newsCreatedAt.text = dateFormatter.string(from: dateTemp ?? Date())
-            
+            self.pokemonImageView.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "ic_no_Image"))
            
         }
     }
-    
-//    func setUI(imageURL: String, title: String, createdAt : String, author: String, description : String){
-//        DispatchQueue.main.async {
-//
-//            self.newsTitle.text = title
-//            self.newsDescription.text = description
-//            self.newsAuthor.text = author
-//
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-//            dateFormatter.timeZone = TimeZone(abbreviation: "WIB")
-//            let dateTemp = dateFormatter.date(from: createdAt)
-//
-//
-//            dateFormatter.dateFormat = "EEEE, MMM d, yyyy HH:mm:ss"
-////            print("Dateobj: \(dateFormatter.string(from: dateTemp ?? Date())) :: DATETEMP : \(dateTemp) :: CREATED AT : \(createdAt)")
-//
-//
-//
-//            self.newsCreatedAt.text = dateFormatter.string(from: dateTemp ?? Date())
-//
-//            let imageUrl: URL = URL(string: imageURL)!
-//            let imageData : NSData = NSData(contentsOf: imageUrl)!
-//            let image = UIImage(data: imageData as Data)
-//            self.newsImage.image = image
-//
-//        }
-//    }
     
 }

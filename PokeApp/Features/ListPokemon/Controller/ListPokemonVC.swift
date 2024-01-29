@@ -46,17 +46,13 @@ class ListPokemonVC : UIViewController{
         listPokemonTableView.dataSource = self
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "GoToListSource"{
-//            if let destVC = segue.destination as? ListSourceViewController {
-//                
-//                let categoryVM = categoriesViewModel.modelAt(self.selectedIndex)
-//                destVC.category = categoryVM.item.categoryName ?? "business" // justdefault value
-//                destVC.categoryImage = categoryVM.item.categoryImage ?? ""
-//                destVC.modalPresentationStyle = .fullScreen
-//            }
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoToPokemonDetail"{
+            if let destVC = segue.destination as? DetailPokemonVC {
+                destVC.pokemonDetail = listPokemonVM.getPokemon(at: self.selectedIndex)
+            }
+        }
+    }
     
     func getListPokemon(isNext : Bool){
         LoadingScreen.sharedInstance.showIndicator()
@@ -89,6 +85,11 @@ extension ListPokemonVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 75
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedIndex = indexPath.row
+        performSegue(withIdentifier: "GoToPokemonDetail", sender: self)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
