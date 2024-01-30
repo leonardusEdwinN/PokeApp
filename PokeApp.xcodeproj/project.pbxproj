@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		135B30DC2B6897E200DE33C8 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135B30DB2B6897E200DE33C8 /* Helpers.swift */; };
 		13A350AB2B675CCC005760BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A350AA2B675CCC005760BD /* AppDelegate.swift */; };
 		13A350AD2B675CCC005760BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A350AC2B675CCC005760BD /* SceneDelegate.swift */; };
 		13A350B22B675CCD005760BD /* ListPokemon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A350B02B675CCD005760BD /* ListPokemon.storyboard */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		135B30DB2B6897E200DE33C8 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		13A350A72B675CCC005760BD /* PokeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13A350AA2B675CCC005760BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13A350AC2B675CCC005760BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			children = (
 				13A350E12B675E29005760BD /* LoadingScreen.swift */,
 				13A350F22B6764F7005760BD /* Constants.swift */,
+				135B30DB2B6897E200DE33C8 /* Helpers.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13A350B52B675CCD005760BD /* PokeApp.xcdatamodeld in Sources */,
+				135B30DC2B6897E200DE33C8 /* Helpers.swift in Sources */,
 				13A351012B6783BA005760BD /* PokemonDetailSprites.swift in Sources */,
 				13A350E72B675E86005760BD /* String+Extensions.swift in Sources */,
 				13A350F92B6778F9005760BD /* ListPokemonResponse.swift in Sources */,
