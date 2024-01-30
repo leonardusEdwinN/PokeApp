@@ -10,6 +10,12 @@
 		135B30DC2B6897E200DE33C8 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135B30DB2B6897E200DE33C8 /* Helpers.swift */; };
 		135B30DE2B68ACE500DE33C8 /* PreferenceServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135B30DD2B68ACE500DE33C8 /* PreferenceServices.swift */; };
 		135B30E12B68AEC700DE33C8 /* MyPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135B30E02B68AEC700DE33C8 /* MyPokemon.swift */; };
+		135B30E92B68CBC700DE33C8 /* MyPokemonList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 135B30E82B68CBC700DE33C8 /* MyPokemonList.storyboard */; };
+		135B30EB2B68CBE900DE33C8 /* MyPokemonListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135B30EA2B68CBE900DE33C8 /* MyPokemonListVC.swift */; };
+		135B30EE2B68CC6000DE33C8 /* MyPokemonListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135B30EC2B68CC6000DE33C8 /* MyPokemonListTableViewCell.swift */; };
+		135B30EF2B68CC6000DE33C8 /* MyPokemonListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 135B30ED2B68CC6000DE33C8 /* MyPokemonListTableViewCell.xib */; };
+		135B30F12B68CD3800DE33C8 /* Tableview+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135B30F02B68CD3800DE33C8 /* Tableview+Extensions.swift */; };
+		135B30F42B68D08200DE33C8 /* DetailPokemonVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135B30F32B68D08200DE33C8 /* DetailPokemonVM.swift */; };
 		13A350AB2B675CCC005760BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A350AA2B675CCC005760BD /* AppDelegate.swift */; };
 		13A350AD2B675CCC005760BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A350AC2B675CCC005760BD /* SceneDelegate.swift */; };
 		13A350B22B675CCD005760BD /* ListPokemon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A350B02B675CCD005760BD /* ListPokemon.storyboard */; };
@@ -63,6 +69,12 @@
 		135B30DB2B6897E200DE33C8 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		135B30DD2B68ACE500DE33C8 /* PreferenceServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceServices.swift; sourceTree = "<group>"; };
 		135B30E02B68AEC700DE33C8 /* MyPokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPokemon.swift; sourceTree = "<group>"; };
+		135B30E82B68CBC700DE33C8 /* MyPokemonList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPokemonList.storyboard; sourceTree = "<group>"; };
+		135B30EA2B68CBE900DE33C8 /* MyPokemonListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPokemonListVC.swift; sourceTree = "<group>"; };
+		135B30EC2B68CC6000DE33C8 /* MyPokemonListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPokemonListTableViewCell.swift; sourceTree = "<group>"; };
+		135B30ED2B68CC6000DE33C8 /* MyPokemonListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPokemonListTableViewCell.xib; sourceTree = "<group>"; };
+		135B30F02B68CD3800DE33C8 /* Tableview+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tableview+Extensions.swift"; sourceTree = "<group>"; };
+		135B30F32B68D08200DE33C8 /* DetailPokemonVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPokemonVM.swift; sourceTree = "<group>"; };
 		13A350A72B675CCC005760BD /* PokeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13A350AA2B675CCC005760BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13A350AC2B675CCC005760BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,11 +153,47 @@
 			path = MyPokemon;
 			sourceTree = "<group>";
 		};
-		135B30E22B68B19300DE33C8 /* PopUpMyPokemon */ = {
+		135B30E22B68B19300DE33C8 /* MyPokemonList */ = {
 			isa = PBXGroup;
 			children = (
+				135B30E62B68CBAD00DE33C8 /* Controller */,
+				135B30E52B68CBA700DE33C8 /* View */,
 			);
-			path = PopUpMyPokemon;
+			path = MyPokemonList;
+			sourceTree = "<group>";
+		};
+		135B30E52B68CBA700DE33C8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				135B30E72B68CBB300DE33C8 /* Cell */,
+				135B30E82B68CBC700DE33C8 /* MyPokemonList.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		135B30E62B68CBAD00DE33C8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				135B30EA2B68CBE900DE33C8 /* MyPokemonListVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		135B30E72B68CBB300DE33C8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				135B30EC2B68CC6000DE33C8 /* MyPokemonListTableViewCell.swift */,
+				135B30ED2B68CC6000DE33C8 /* MyPokemonListTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		135B30F22B68D07600DE33C8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				135B30F32B68D08200DE33C8 /* DetailPokemonVM.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		13A3509E2B675CCC005760BD = {
@@ -225,7 +273,7 @@
 		13A350E32B675E48005760BD /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				135B30E22B68B19300DE33C8 /* PopUpMyPokemon */,
+				135B30E22B68B19300DE33C8 /* MyPokemonList */,
 				13ED84812B67A6B50068DBDD /* DetailPokemon */,
 				13A350EE2B676125005760BD /* Model */,
 				13A350E82B6760E6005760BD /* ListPokemon */,
@@ -246,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				13A350E62B675E86005760BD /* String+Extensions.swift */,
+				135B30F02B68CD3800DE33C8 /* Tableview+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -327,6 +376,7 @@
 		13ED84812B67A6B50068DBDD /* DetailPokemon */ = {
 			isa = PBXGroup;
 			children = (
+				135B30F22B68D07600DE33C8 /* ViewModel */,
 				13ED84832B67A6C60068DBDD /* Controller */,
 				13ED84822B67A6C00068DBDD /* View */,
 			);
@@ -495,6 +545,8 @@
 				13ED848E2B67C3BE0068DBDD /* PokemonDetailTypesCollectionViewCell.xib in Resources */,
 				13A350F72B676AED005760BD /* ListPokemonTableViewCell.xib in Resources */,
 				13ED84872B67A6E80068DBDD /* DetailPokemon.storyboard in Resources */,
+				135B30E92B68CBC700DE33C8 /* MyPokemonList.storyboard in Resources */,
+				135B30EF2B68CC6000DE33C8 /* MyPokemonListTableViewCell.xib in Resources */,
 				13A350B72B675CCE005760BD /* Assets.xcassets in Resources */,
 				13A350B22B675CCD005760BD /* ListPokemon.storyboard in Resources */,
 			);
@@ -627,9 +679,12 @@
 				13A350B52B675CCD005760BD /* PokeApp.xcdatamodeld in Sources */,
 				135B30DC2B6897E200DE33C8 /* Helpers.swift in Sources */,
 				135B30DE2B68ACE500DE33C8 /* PreferenceServices.swift in Sources */,
+				135B30F12B68CD3800DE33C8 /* Tableview+Extensions.swift in Sources */,
 				13A351012B6783BA005760BD /* PokemonDetailSprites.swift in Sources */,
 				13A350E72B675E86005760BD /* String+Extensions.swift in Sources */,
 				13A350F92B6778F9005760BD /* ListPokemonResponse.swift in Sources */,
+				135B30EB2B68CBE900DE33C8 /* MyPokemonListVC.swift in Sources */,
+				135B30EE2B68CC6000DE33C8 /* MyPokemonListTableViewCell.swift in Sources */,
 				13A350E22B675E29005760BD /* LoadingScreen.swift in Sources */,
 				13ED848D2B67C3BE0068DBDD /* PokemonDetailTypesCollectionViewCell.swift in Sources */,
 				13ED84852B67A6D50068DBDD /* DetailPokemonVC.swift in Sources */,
@@ -640,6 +695,7 @@
 				13A350F62B676AED005760BD /* ListPokemonTableViewCell.swift in Sources */,
 				13A350DF2B675DB1005760BD /* WebService.swift in Sources */,
 				13A350F02B676139005760BD /* ListPokemonVM.swift in Sources */,
+				135B30F42B68D08200DE33C8 /* DetailPokemonVM.swift in Sources */,
 				13A350AD2B675CCC005760BD /* SceneDelegate.swift in Sources */,
 				13A351032B6783DA005760BD /* PokemonDetailTypes.swift in Sources */,
 				135B30E12B68AEC700DE33C8 /* MyPokemon.swift in Sources */,

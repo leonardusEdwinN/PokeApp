@@ -43,4 +43,5 @@ struct MyPokemon: Decodable, Encodable {
     let realname : String?
     let isAlreadyRename: Bool?
     let attemptRename: Int?
+    let frontImage: String?
 }

@@ -30,6 +30,9 @@
                                         <rect key="frame" x="296" y="8" width="89" height="34"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="My Poke"/>
+                                        <connections>
+                                            <action selector="myPokemonListButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9sW-dP-G7V"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -61,13 +64,25 @@
                     </view>
                     <connections>
                         <outlet property="listPokemonTableView" destination="g7p-Ig-EXJ" id="gLO-8l-pjx"/>
+                        <outlet property="myPokemonListButton" destination="noV-AZ-75a" id="RJE-EL-6iK"/>
                         <outlet property="navigationView" destination="dqm-q8-TtZ" id="wMm-ye-t6q"/>
                         <segue destination="w76-sr-bTl" kind="show" identifier="GoToPokemonDetail" id="RSg-As-UH0"/>
+                        <segue destination="VW4-hL-Y3g" kind="show" identifier="GoToMyPokemonList" id="LrG-xh-XBE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="-2"/>
+        </scene>
+        <!--MyPokemonListVC-->
+        <scene sceneID="HnK-X3-z47">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MyPokemonList" referencedIdentifier="MyPokemonListVC" id="VW4-hL-Y3g" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="t3A-Fl-BHX"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FSu-aL-0mm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="707" y="-104"/>
         </scene>
         <!--DetailPokemonVC-->
         <scene sceneID="Ee0-Zl-RqG">

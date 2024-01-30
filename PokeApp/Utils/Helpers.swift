@@ -91,7 +91,7 @@ extension Helpers{
 
 
 extension Helpers{
-    static func showFormAlert(pokemonName: String, completion: @escaping (MyPokemon) -> Void){
+    static func showFormAlert(pokemonName: String, pokemonImage: String, completion: @escaping (MyPokemon) -> Void){
         var attributes: EKAttributes = .centerFloat
         
         let colors: [EKColor] = [
@@ -139,7 +139,7 @@ extension Helpers{
             backgroundColor: .white,
             highlightedBackgroundColor: .white,
             contentEdgeInset: 8) {
-                let myPokemon = MyPokemon(nickname: nameTF.textContent, realname: pokemonName , isAlreadyRename: false, attemptRename: 0)
+                let myPokemon = MyPokemon(nickname: nameTF.textContent, realname: pokemonName , isAlreadyRename: false, attemptRename: 0, frontImage: pokemonImage)
                 completion(myPokemon)
                 SwiftEntryKit.dismiss()
             }

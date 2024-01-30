@@ -21,16 +21,13 @@ class DetailPokemonVC : UIViewController {
         let randomBool = Helpers.getRandomBool()
         print("RANDOM \(randomBool)")
         if randomBool{
-            Helpers.showFormAlert(pokemonName: self.pokemonDetail?.name ?? "") { myPokemon in
+            Helpers.showFormAlert(pokemonName: self.pokemonDetail?.name ?? "", pokemonImage: pokemonDetail?.sprites?.frontDefault ?? "") { [self] myPokemon in
                 let pokemon = myPokemon
                 print("mypokemon = \(myPokemon.nickname)")
                 
-                var pokemonList: [MyPokemon] = Helpers.getMyPokemonList()
-                pokemonList.append(myPokemon)
+                pokemonDetailVM.addPokemonToList(newPokemon: myPokemon)
                 
-                
-                print("mypokemon List : \(pokemonList)")
-                Helpers.saveMyPokemonList(pokemonList: pokemonList)
+                print("mypokemon List : \(pokemonDetailVM.getMyPokemonList())")
             }
             
             
@@ -50,6 +47,7 @@ class DetailPokemonVC : UIViewController {
     
     @IBOutlet weak var pokemonMovesLabel: UILabel!
     var pokemonDetail: PokemonDetailResponse?
+    var pokemonDetailVM = DetailPokemonVM()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
