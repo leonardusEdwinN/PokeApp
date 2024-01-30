@@ -29,4 +29,14 @@ class DetailPokemonVM {
         return listMyPokemon.count
     }
     
+    func deletePokemonOnList(at index: Int){
+        getMyPokemonList()
+        
+        print("BEFORE : \(listMyPokemon)")
+        listMyPokemon.remove(at: index)
+        Helpers.saveMyPokemonList(pokemonList: listMyPokemon)
+        
+        print("AFTER : \(listMyPokemon)")
+    }
+    
 }

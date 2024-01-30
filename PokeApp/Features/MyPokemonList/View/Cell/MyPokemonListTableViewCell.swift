@@ -28,6 +28,7 @@ class MyPokemonListTableViewCell: UITableViewCell {
     func resetUI(){
         self.pokemonRealNameLabel.text = ""
         self.pokemonNickNameLabel.text = ""
+        
         self.pokemonImageView.image = UIImage(named:"ic_no_Image")
     }
 

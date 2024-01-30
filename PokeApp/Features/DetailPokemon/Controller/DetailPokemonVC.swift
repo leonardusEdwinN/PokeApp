@@ -28,6 +28,8 @@ class DetailPokemonVC : UIViewController {
                 pokemonDetailVM.addPokemonToList(newPokemon: myPokemon)
                 
                 print("mypokemon List : \(pokemonDetailVM.getMyPokemonList())")
+                
+                Helpers.showBottomToast(body: "GOTCHA \(myPokemon.nickname ?? "") to your Poke List", isWarning: false)
             }
             
             

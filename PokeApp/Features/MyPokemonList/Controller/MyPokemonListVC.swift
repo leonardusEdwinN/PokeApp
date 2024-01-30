@@ -59,7 +59,6 @@ extension MyPokemonListVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myPokemonTableViewCell", for: indexPath)  as! MyPokemonListTableViewCell
         
-        
         let pokemonVM = myPokemonVM.getPokemon(at: indexPath.row)
         cell.setUI(realname: pokemonVM.realname ?? "", nickname: pokemonVM.nickname ?? "", imageUrl: pokemonVM.frontImage ?? "")
         return cell
@@ -69,9 +68,36 @@ extension MyPokemonListVC: UITableViewDelegate, UITableViewDataSource{
         return 75
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedIndex = indexPath.row
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let editAction = UIContextualAction(style: .normal, title: "Edit") { (action, view, handler) in
+            Helpers.showBottomToast(body: "SOON")
+        }
+        editAction.backgroundColor = .darkGray
+        let configuration = UISwipeActionsConfiguration(actions: [editAction])
+        configuration.performsFirstActionWithFullSwipe = false
+        return configuration
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-//        performSegue(withIdentifier: "GoToPokemonDetail", sender: self)
+        let deleteAction = UIContextualAction(style: .destructive, title: "Release") { (action, view, handler) in
+                //YOUR_CODE_HERE
+            let numberRandom = Helpers.getRandomNumber(start: 0, end: 100)
+            self.selectedIndex = indexPath.row
+            
+            print("RANDOM NUMBER : \(numberRandom) :: INDEX : \(self.selectedIndex)")
+            if Helpers.isPrimeNumber(numberRandom) {
+                let pokemonRelease = self.myPokemonVM.getPokemon(at: self.selectedIndex)
+                self.myPokemonVM.deletePokemonOnList(at: self.selectedIndex)
+                Helpers.showBottomToast(body: "\(pokemonRelease.nickname ?? "") Release!!", isWarning: false)
+                self.listPokemonTableView.reloadData()
+            } else {
+                Helpers.showBottomToast(body: "Sorry cannot release pokemon, Try Again later!")
+            }
+        }
+        deleteAction.backgroundColor = .red
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        configuration.performsFirstActionWithFullSwipe = false
+        return configuration
     }
 }

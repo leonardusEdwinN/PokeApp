@@ -10,9 +10,8 @@ import UIKit
 import SwiftEntryKit
 
 public class Helpers {
-    public static let sharedInstance = Helpers()
-    
-    public func isPrimeNumber(_ number: Int) -> Bool {
+
+    public static func isPrimeNumber(_ number: Int) -> Bool {
         guard number >= 2     else { return false }
         guard number != 2     else { return true  }
         guard number % 2 != 0 else { return false }
@@ -20,7 +19,7 @@ public class Helpers {
         return !stride(from: 3, through: Int(sqrt(Double(number))), by: 2).contains { number % $0 == 0 }
     }
     
-    public func getRandomNumber(start: Int, end: Int) -> Int {
+    public static func getRandomNumber(start: Int, end: Int) -> Int {
         let randomInt = Int.random(in: start...end)
         return randomInt
     }
@@ -29,7 +28,7 @@ public class Helpers {
         return Bool.random()
     }
     
-    public func getFibonacciNumber(_ n: Int) -> Int{
+    public static func getFibonacciNumber(_ n: Int) -> Int{
         guard n != 0, n != 1 else { return n }
         return getFibonacciNumber(n - 1) + getFibonacciNumber(n - 2)
     }
@@ -56,19 +55,21 @@ extension Helpers{
         }
         
         PreferenceServices.saveData(key: .myPokeList, value: jsonData)
-        
-        let lastPokemonAdd = pokemonList.last
-        Helpers.showBottomToast(body: "GOTCHA \(lastPokemonAdd?.nickname ?? "") to your Poke List", color: UIColor.green)
     }
 }
 
 extension Helpers{
-    public static func showBottomToast(title: String? = nil, body: String?, color : UIColor? = UIColor.red) {
+    public static func showBottomToast(title: String? = nil, body: String?, isWarning: Bool = true) {
         DispatchQueue.main.async {
             SwiftEntryKit.dismiss(.all)
             // Generate top floating entry and set some properties
+            let green = EKColor(red: 22, green: 161, blue: 99)
+            let red = EKColor(red: 161, green: 22, blue: 22)
+            
+            
             var attributes = EKAttributes.bottomFloat
-            attributes.entryBackground = .color(color: .init(light: color ?? UIColor.red, dark: UIColor.red))
+            attributes.entryBackground = EKAttributes.BackgroundStyle.color(color: isWarning ? red : green)
+            attributes.displayDuration = 5
             attributes.popBehavior = .animated(animation: .init(translate: .init(duration: 0.3), scale: .init(from: 1, to: 0.7, duration: 2)))
             attributes.shadow = .active(with: .init(color: .black, opacity: 0.3, radius: 5, offset: .zero))
             attributes.statusBar = .dark
