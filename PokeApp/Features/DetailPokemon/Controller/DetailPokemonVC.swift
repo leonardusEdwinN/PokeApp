@@ -19,15 +19,10 @@ class DetailPokemonVC : UIViewController {
     @IBOutlet weak var catchPokemonButton: UIButton!
     @IBAction func catchPokemonButtonPressed(_ sender: Any) {
         let randomBool = Helpers.getRandomBool()
-        print("RANDOM \(randomBool)")
         if randomBool{
             Helpers.showFormAlert(pokemonName: self.pokemonDetail?.name ?? "", pokemonImage: pokemonDetail?.sprites?.frontDefault ?? "") { [self] myPokemon in
                 let pokemon = myPokemon
-                print("mypokemon = \(myPokemon.nickname)")
-                
                 pokemonDetailVM.addPokemonToList(newPokemon: myPokemon)
-                
-                print("mypokemon List : \(pokemonDetailVM.getMyPokemonList())")
                 
                 Helpers.showBottomToast(body: "GOTCHA \(myPokemon.nickname ?? "") to your Poke List", isWarning: false)
             }
@@ -103,8 +98,6 @@ class DetailPokemonVC : UIViewController {
 
 extension DetailPokemonVC : UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("COUNT : \(pokemonDetail?.types?.count ?? 0)")
-        print("COUNT MOVE : \(pokemonDetail?.moves?.count ?? 0)")
         if collectionView == self.pokemonTypeCollectionView{
             return pokemonDetail?.types?.count ?? 0
         } else if collectionView == self.pokemonMoveCollectionView {
@@ -120,12 +113,10 @@ extension DetailPokemonVC : UICollectionViewDelegate, UICollectionViewDataSource
         
         if collectionView == self.pokemonTypeCollectionView {
             let pokemonType = pokemonDetail?.types?[indexPath.row].type?.name ?? ""
-            print("POKEMON TYPE : \(pokemonType)")
             cell.setUI(type: pokemonType)
             return cell
         } else if collectionView == self.pokemonMoveCollectionView {
             let pokemonMove = pokemonDetail?.moves?[indexPath.row].move?.name ?? ""
-            //            print("POKEMON MOVE : \(pokemonMove)")
             cell.setUI(type: pokemonMove)
             return cell
         } else {

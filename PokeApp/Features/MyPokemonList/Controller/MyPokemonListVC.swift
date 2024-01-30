@@ -79,8 +79,7 @@ extension MyPokemonListVC: UITableViewDelegate, UITableViewDataSource{
                 let pokemonArray = pokemon.nickname?.split(separator: "-")
                 renamePokemon = (pokemonArray?.first ?? "") + "-" + "\(fibonacciNumber)"
             }
-           
-            print("RENAME POKEMON : \(renamePokemon)")
+            
             Helpers.showFormAlert(pokemonName: pokemon.realname ?? "", pokemonImage: pokemon.frontImage ?? "", rename: renamePokemon) { [self] myPokemon in
                 var attemp = (pokemon.attemptRename ?? 0) + 1
                 var pokemon = MyPokemon(
@@ -106,10 +105,9 @@ extension MyPokemonListVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Release") { (action, view, handler) in
-                //YOUR_CODE_HERE
+            
             let numberRandom = Helpers.getRandomNumber(start: 0, end: 100)
             
-            print("RANDOM NUMBER : \(numberRandom) :: INDEX : \(indexPath.row)")
             if Helpers.isPrimeNumber(numberRandom) {
                 let pokemonRelease = self.myPokemonVM.getPokemon(at: indexPath.row)
                 self.myPokemonVM.deletePokemonOnList(at: indexPath.row)

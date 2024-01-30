@@ -43,8 +43,6 @@ extension Helpers{
         guard let pokemonList = try?
                 JSONDecoder().decode([MyPokemon].self, from: data) else { return []}
         
-        
-        print("pokemonList: \(pokemonList)")
         return pokemonList
     }
     

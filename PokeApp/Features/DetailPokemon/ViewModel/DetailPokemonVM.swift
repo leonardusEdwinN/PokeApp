@@ -25,22 +25,18 @@ class DetailPokemonVM {
     
     func getCountMyPokemonList() -> Int{
         getMyPokemonList()
-        print("COUNT : \(listMyPokemon.count)")
         return listMyPokemon.count
     }
     
     func deletePokemonOnList(at index: Int){
         getMyPokemonList()
         
-        print("BEFORE : \(listMyPokemon)")
         listMyPokemon.remove(at: index)
         Helpers.saveMyPokemonList(pokemonList: listMyPokemon)
         
-        print("AFTER : \(listMyPokemon)")
     }
     
     func editPokemon(pokemon: MyPokemon, at index: Int){
-        print("index: \(index)")
         listMyPokemon[index] = pokemon
         Helpers.saveMyPokemonList(pokemonList: listMyPokemon)
     }
