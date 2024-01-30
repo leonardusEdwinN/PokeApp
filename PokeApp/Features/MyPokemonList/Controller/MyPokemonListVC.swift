@@ -14,7 +14,6 @@ class MyPokemonListVC : UIViewController{
     @IBOutlet weak var navigationView: UIView!
     
     private var myPokemonVM = DetailPokemonVM()
-    private var selectedIndex: Int = 0
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -70,7 +69,33 @@ extension MyPokemonListVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let editAction = UIContextualAction(style: .normal, title: "Edit") { (action, view, handler) in
-            Helpers.showBottomToast(body: "SOON")
+            let pokemon = self.myPokemonVM.getPokemon(at: indexPath.row)
+            let fibonacciNumber = Helpers.getFibonacciNumber(pokemon.attemptRename ?? 0)
+            var renamePokemon = ""
+            
+            if !(pokemon.isAlreadyRename ?? false) {
+                renamePokemon = (pokemon.nickname ?? "") + "-" + "\(fibonacciNumber)"
+            } else {
+                let pokemonArray = pokemon.nickname?.split(separator: "-")
+                renamePokemon = (pokemonArray?.first ?? "") + "-" + "\(fibonacciNumber)"
+            }
+           
+            print("RENAME POKEMON : \(renamePokemon)")
+            Helpers.showFormAlert(pokemonName: pokemon.realname ?? "", pokemonImage: pokemon.frontImage ?? "", rename: renamePokemon) { [self] myPokemon in
+                var attemp = (pokemon.attemptRename ?? 0) + 1
+                var pokemon = MyPokemon(
+                    nickname: myPokemon.nickname,
+                    realname: myPokemon.realname,
+                    isAlreadyRename: true,
+                    attemptRename: attemp,
+                    frontImage: myPokemon.frontImage
+                )
+                
+                myPokemonVM.editPokemon(pokemon: pokemon, at: indexPath.row)
+                tableView.reloadData()
+                Helpers.showBottomToast(body: "Successfully Rename pokemon", isWarning: false)
+                
+            }
         }
         editAction.backgroundColor = .darkGray
         let configuration = UISwipeActionsConfiguration(actions: [editAction])
@@ -83,12 +108,11 @@ extension MyPokemonListVC: UITableViewDelegate, UITableViewDataSource{
         let deleteAction = UIContextualAction(style: .destructive, title: "Release") { (action, view, handler) in
                 //YOUR_CODE_HERE
             let numberRandom = Helpers.getRandomNumber(start: 0, end: 100)
-            self.selectedIndex = indexPath.row
             
-            print("RANDOM NUMBER : \(numberRandom) :: INDEX : \(self.selectedIndex)")
+            print("RANDOM NUMBER : \(numberRandom) :: INDEX : \(indexPath.row)")
             if Helpers.isPrimeNumber(numberRandom) {
-                let pokemonRelease = self.myPokemonVM.getPokemon(at: self.selectedIndex)
-                self.myPokemonVM.deletePokemonOnList(at: self.selectedIndex)
+                let pokemonRelease = self.myPokemonVM.getPokemon(at: indexPath.row)
+                self.myPokemonVM.deletePokemonOnList(at: indexPath.row)
                 Helpers.showBottomToast(body: "\(pokemonRelease.nickname ?? "") Release!!", isWarning: false)
                 self.listPokemonTableView.reloadData()
             } else {

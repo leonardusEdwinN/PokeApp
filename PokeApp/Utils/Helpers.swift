@@ -92,7 +92,7 @@ extension Helpers{
 
 
 extension Helpers{
-    static func showFormAlert(pokemonName: String, pokemonImage: String, completion: @escaping (MyPokemon) -> Void){
+    static func showFormAlert(pokemonName: String, pokemonImage: String, rename: String = "",  completion: @escaping (MyPokemon) -> Void){
         var attributes: EKAttributes = .centerFloat
         
         let colors: [EKColor] = [
@@ -122,8 +122,10 @@ extension Helpers{
                 numberOfLines: 1
             )
         )
-        
-        let nameTF = createTextField(placeholder: "Pokemon Nickname", leadingImage:  UIImage(systemName: "person.crop.circle"))
+        var nameTF = createTextField(placeholder: "Pokemon Nickname", leadingImage:  UIImage(systemName: "person.crop.circle"))
+        if rename != "" {
+            nameTF.textContent = rename
+        }
         
         let buttonLabel = EKProperty.LabelContent(
             text: "Submit",

@@ -39,4 +39,10 @@ class DetailPokemonVM {
         print("AFTER : \(listMyPokemon)")
     }
     
+    func editPokemon(pokemon: MyPokemon, at index: Int){
+        print("index: \(index)")
+        listMyPokemon[index] = pokemon
+        Helpers.saveMyPokemonList(pokemonList: listMyPokemon)
+    }
+    
 }
