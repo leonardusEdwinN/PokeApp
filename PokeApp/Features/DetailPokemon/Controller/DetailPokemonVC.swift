@@ -18,6 +18,8 @@ class DetailPokemonVC : UIViewController {
     
     @IBOutlet weak var frontImageView: UIImageView!
     @IBOutlet weak var backImageView: UIImageView!
+    @IBOutlet weak var pokemonHeightValueLabel: UILabel!
+    @IBOutlet weak var pokemonWeightValueLabel: UILabel!
     @IBOutlet weak var pokemonTypeLabel: UILabel!
     @IBOutlet weak var pokemonTypeCollectionView: UICollectionView!
     
@@ -44,6 +46,8 @@ class DetailPokemonVC : UIViewController {
     
     func setUI(){
         pokemonNameLabel.text = pokemonDetail?.name ?? ""
+        pokemonHeightValueLabel.text = "\(pokemonDetail?.height ?? 0)"
+        pokemonWeightValueLabel.text = "\(pokemonDetail?.weight ?? 0)"
         
         guard 
             let frontImageURL = URL(string: pokemonDetail?.sprites?.frontDefault ?? ""),
@@ -98,7 +102,7 @@ extension DetailPokemonVC : UICollectionViewDelegate, UICollectionViewDataSource
             return cell
         } else if collectionView == self.pokemonMoveCollectionView {
             let pokemonMove = pokemonDetail?.moves?[indexPath.row].move?.name ?? ""
-            print("POKEMON MOVE : \(pokemonMove)")
+//            print("POKEMON MOVE : \(pokemonMove)")
             cell.setUI(type: pokemonMove)
             return cell
         } else {
@@ -114,22 +118,29 @@ extension DetailPokemonVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var widthCell : CGSize = CGSize(width: 100, height: 100)
         
+        
         if collectionView == self.pokemonTypeCollectionView{
+            let pokemonType = pokemonDetail?.types?[indexPath.row].type?.name ?? ""
+            let widthCellItem = (pokemonType.count * 6) + 40
+            
             let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
             layout.sectionInset = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4)
-            layout.minimumInteritemSpacing = 0
+            layout.minimumInteritemSpacing = 4
             layout.minimumLineSpacing = 4
-            layout.invalidateLayout()
             
-            widthCell =  CGSize(width: 125, height: 36) // Set your item size here
+            widthCell =  CGSize(width: widthCellItem, height: 36) // Set your item size here
         } else if collectionView == self.pokemonMoveCollectionView {
+            
+            let pokemonMove = pokemonDetail?.moves?[indexPath.row].move?.name ?? ""
+            let widthCellItem = (pokemonMove.count * 6) + 40
+            
             let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
             layout.sectionInset = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4)
             layout.minimumInteritemSpacing = 0
             layout.minimumLineSpacing = 4
-            layout.invalidateLayout()
+            layout.scrollDirection = .vertical
             
-            widthCell =  CGSize(width: (self.pokemonMoveCollectionView.frame.width - 16) / 3, height: 36) // Set your item size here
+            widthCell =  CGSize(width: widthCellItem, height: 36) // Set your item size here
         }
         
         return widthCell

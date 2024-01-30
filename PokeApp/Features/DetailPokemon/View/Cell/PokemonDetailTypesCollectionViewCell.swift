@@ -14,21 +14,12 @@ class PokemonDetailTypesCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-//        resetUI()
-        
         roundedView.backgroundColor = UIColor.white
         roundedView.layer.cornerRadius = 14.0
         roundedView.layer.shadowColor = UIColor.gray.cgColor
         roundedView.layer.shadowOffset = CGSize(width: 1, height: 1)
         roundedView.layer.shadowRadius = 1
         roundedView.layer.shadowOpacity = 5
-        
-       
-        // Initialization code
-    }
-    
-    func resetUI(){
-        self.typesLabel.text = ""
     }
     
     func setUI(type: String){

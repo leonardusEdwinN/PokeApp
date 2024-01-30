@@ -89,6 +89,7 @@ extension ListPokemonVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedIndex = indexPath.row
+        
         performSegue(withIdentifier: "GoToPokemonDetail", sender: self)
     }
     
