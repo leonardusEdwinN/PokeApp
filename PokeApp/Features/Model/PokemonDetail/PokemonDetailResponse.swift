@@ -12,6 +12,7 @@ struct PokemonDetailResponse : Codable {
     let types : [PokemonDetailTypes]?
     let weight : Int?
     let height: Int?
+    let moves: [PokemonDetailMoves]?
 
     enum CodingKeys: String, CodingKey {
 
@@ -20,6 +21,7 @@ struct PokemonDetailResponse : Codable {
         case types = "types"
         case weight = "weight"
         case height = "height"
+        case moves = "moves"
     }
 
     init(from decoder: Decoder) throws {
@@ -29,6 +31,7 @@ struct PokemonDetailResponse : Codable {
         types = try values.decodeIfPresent([PokemonDetailTypes].self, forKey: .types)
         weight = try values.decodeIfPresent(Int.self, forKey: .weight)
         height = try values.decodeIfPresent(Int.self, forKey: .height)
+        moves = try values.decodeIfPresent([PokemonDetailMoves].self, forKey: .moves)
     }
 
 }
