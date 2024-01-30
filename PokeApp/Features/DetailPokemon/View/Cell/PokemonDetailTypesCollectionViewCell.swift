@@ -14,7 +14,7 @@ class PokemonDetailTypesCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        roundedView.backgroundColor = UIColor.white
+        roundedView.backgroundColor = UIColor.colorLightGray
         roundedView.layer.cornerRadius = 14.0
         roundedView.layer.shadowColor = UIColor.gray.cgColor
         roundedView.layer.shadowOffset = CGSize(width: 1, height: 1)

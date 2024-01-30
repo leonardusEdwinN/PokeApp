@@ -4,8 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,18 +21,24 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokemon List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSg-Wc-9FB">
-                                        <rect key="frame" x="134.33333333333334" y="13.333333333333327" width="124.66666666666666" height="23.333333333333329"/>
-                                        <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="20"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="121.66666666666667" y="11" width="149.66666666666663" height="28"/>
+                                        <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="24"/>
+                                        <color key="textColor" name="SecondaryColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noV-AZ-75a">
-                                        <rect key="frame" x="296" y="8" width="89" height="34"/>
+                                        <rect key="frame" x="294.66666666666669" y="8" width="90.333333333333314" height="34"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="My Poke"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="My Poke">
+                                            <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                            <color key="baseForegroundColor" name="AccentColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="myPokemonListButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9sW-dP-G7V"/>
+                                        </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="DarkGray"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="noV-AZ-75a" secondAttribute="bottom" constant="8" id="6EG-8W-R5m"/>
                                     <constraint firstItem="YSg-Wc-9FB" firstAttribute="centerX" secondItem="dqm-q8-TtZ" secondAttribute="centerX" id="GlE-JW-sUh"/>
@@ -42,13 +48,13 @@
                                     <constraint firstAttribute="height" constant="50" id="oCE-zy-ciI"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="g7p-Ig-EXJ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="g7p-Ig-EXJ">
                                 <rect key="frame" x="8" y="125" width="377" height="677"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="DarkGray"/>
                         <constraints>
                             <constraint firstItem="g7p-Ig-EXJ" firstAttribute="top" secondItem="dqm-q8-TtZ" secondAttribute="bottom" constant="16" id="7ep-lc-Jjx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="g7p-Ig-EXJ" secondAttribute="trailing" constant="8" id="FRC-YM-LTR"/>
@@ -61,13 +67,25 @@
                     </view>
                     <connections>
                         <outlet property="listPokemonTableView" destination="g7p-Ig-EXJ" id="gLO-8l-pjx"/>
+                        <outlet property="myPokemonListButton" destination="noV-AZ-75a" id="RJE-EL-6iK"/>
                         <outlet property="navigationView" destination="dqm-q8-TtZ" id="wMm-ye-t6q"/>
                         <segue destination="w76-sr-bTl" kind="show" identifier="GoToPokemonDetail" id="RSg-As-UH0"/>
+                        <segue destination="VW4-hL-Y3g" kind="show" identifier="GoToMyPokemonList" id="LrG-xh-XBE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="-2"/>
+        </scene>
+        <!--MyPokemonListVC-->
+        <scene sceneID="HnK-X3-z47">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MyPokemonList" referencedIdentifier="MyPokemonListVC" id="VW4-hL-Y3g" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="t3A-Fl-BHX"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FSu-aL-0mm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="707" y="-104"/>
         </scene>
         <!--DetailPokemonVC-->
         <scene sceneID="Ee0-Zl-RqG">
@@ -81,8 +99,14 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="AccentColor">
+            <color red="0.5490196078431373" green="0.5490196078431373" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="DarkGray">
+            <color red="0.16470588235294117" green="0.18431372549019609" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryColor">
+            <color red="0.5490196078431373" green="0.58039215686274515" blue="0.56862745098039214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

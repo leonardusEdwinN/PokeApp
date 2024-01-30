@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--My Pokemon ListVC-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="MyPokemonListVC" id="Y6W-OH-hqX" customClass="MyPokemonListVC" customModule="PokeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZsY-28-dfb">
+                                <rect key="frame" x="0.0" y="59" width="393" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Pokemon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVt-aQ-h7t">
+                                        <rect key="frame" x="126.66666666666669" y="11" width="140" height="28"/>
+                                        <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="24"/>
+                                        <color key="textColor" name="SecondaryColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="DarkGray"/>
+                                <constraints>
+                                    <constraint firstItem="yVt-aQ-h7t" firstAttribute="centerX" secondItem="ZsY-28-dfb" secondAttribute="centerX" id="15w-V2-nJL"/>
+                                    <constraint firstItem="yVt-aQ-h7t" firstAttribute="centerY" secondItem="ZsY-28-dfb" secondAttribute="centerY" id="8yq-rF-abM"/>
+                                    <constraint firstAttribute="height" constant="50" id="J8v-7r-4sE"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vlA-El-90n">
+                                <rect key="frame" x="8" y="125" width="377" height="661"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="DarkGray"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ZsY-28-dfb" secondAttribute="trailing" id="6Aw-7G-VDD"/>
+                            <constraint firstItem="ZsY-28-dfb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="6xG-cl-HrT"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="vlA-El-90n" secondAttribute="bottom" constant="32" id="7ML-JR-OKb"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="vlA-El-90n" secondAttribute="trailing" constant="8" id="Evd-3O-Dbv"/>
+                            <constraint firstItem="vlA-El-90n" firstAttribute="top" secondItem="ZsY-28-dfb" secondAttribute="bottom" constant="16" id="JaY-v4-h2D"/>
+                            <constraint firstItem="ZsY-28-dfb" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Ns6-dJ-IYH"/>
+                            <constraint firstItem="vlA-El-90n" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="T0Q-o3-8q8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="listPokemonTableView" destination="vlA-El-90n" id="6iP-7T-Gr9"/>
+                        <outlet property="navigationView" destination="ZsY-28-dfb" id="0gK-37-gdO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="85" y="-2"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="DarkGray">
+            <color red="0.16470588235294117" green="0.18431372549019609" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryColor">
+            <color red="0.5490196078431373" green="0.58039215686274515" blue="0.56862745098039214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
