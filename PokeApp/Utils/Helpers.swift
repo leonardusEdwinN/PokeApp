@@ -101,6 +101,8 @@ extension Helpers{
         ]
         attributes.entryBackground = .gradient(gradient: .init(colors: colors, startPoint: .zero, endPoint: CGPoint(x: 1, y: 1)))
         
+        attributes.screenBackground = .color(color: EKColor(UIColor(white: 0.5, alpha: 0.5)))
+        
         attributes.roundCorners = .all(radius: 12)
         
         attributes.displayDuration = .infinity

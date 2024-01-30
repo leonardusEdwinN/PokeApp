@@ -13,23 +13,19 @@ class ListPokemonTableViewCell: UITableViewCell {
     @IBOutlet weak var viewRounded: UIView!
     @IBOutlet weak var pokemonNameLabel: UILabel!
     @IBOutlet weak var pokemonImageView: UIImageView!
-    @IBOutlet weak var pokemonCategoryCollectionView: UICollectionView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         resetUI()
     
-        
-        viewRounded.backgroundColor = UIColor.white
+        viewRounded.backgroundColor = UIColor.colorPrimary
         viewRounded.layer.cornerRadius = 15.0
         viewRounded.layer.shadowColor = UIColor.gray.cgColor
         viewRounded.layer.shadowOffset = CGSize(width: 1, height: 1)
         viewRounded.layer.shadowRadius = 1
         viewRounded.layer.shadowOpacity = 5
         
-       
-        // Initialization code
     }
     
     func resetUI(){

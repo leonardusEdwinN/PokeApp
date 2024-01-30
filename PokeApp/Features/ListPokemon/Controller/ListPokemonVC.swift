@@ -33,11 +33,12 @@ class ListPokemonVC : UIViewController{
         
         listPokemonTableView.showsVerticalScrollIndicator = false
         listPokemonTableView.showsHorizontalScrollIndicator = false
+        listPokemonTableView.backgroundColor = .clear
         listPokemonTableView.reloadData()
     }
     
     func setUINavigation(){
-        navigationView.backgroundColor = UIColor.white
+        navigationView.backgroundColor = UIColor.colorDarkGray
         navigationView.layer.shadowColor = UIColor.gray.cgColor
         navigationView.layer.shadowOffset = CGSize(width: 1, height: 1)
         navigationView.layer.shadowRadius = 1
@@ -85,10 +86,10 @@ extension ListPokemonVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "pokemonTableViewCell", for: indexPath)  as! ListPokemonTableViewCell
-        
-        
         let pokemonVM = listPokemonVM.getPokemon(at: indexPath.row)
         cell.setUI(title: pokemonVM.name ?? "", imageUrl: pokemonVM.sprites?.frontDefault ?? "")
+        
+        
         return cell
     }
     

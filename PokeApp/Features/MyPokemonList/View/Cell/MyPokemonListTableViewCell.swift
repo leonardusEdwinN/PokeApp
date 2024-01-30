@@ -17,7 +17,7 @@ class MyPokemonListTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         resetUI()
-        viewRounded.backgroundColor = UIColor.white
+        viewRounded.backgroundColor = UIColor.colorPrimary
         viewRounded.layer.cornerRadius = 15.0
         viewRounded.layer.shadowColor = UIColor.gray.cgColor
         viewRounded.layer.shadowOffset = CGSize(width: 1, height: 1)

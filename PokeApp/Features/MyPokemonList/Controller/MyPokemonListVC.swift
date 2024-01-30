@@ -33,7 +33,7 @@ class MyPokemonListVC : UIViewController{
     }
     
     func setUINavigation(){
-        navigationView.backgroundColor = UIColor.white
+        navigationView.backgroundColor = UIColor.colorDarkGray
         navigationView.layer.shadowColor = UIColor.gray.cgColor
         navigationView.layer.shadowOffset = CGSize(width: 1, height: 1)
         navigationView.layer.shadowRadius = 1
