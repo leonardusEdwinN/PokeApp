@@ -7,6 +7,7 @@
 import Foundation
 import UIKit
 import SDWebImage
+import SwiftEntryKit
 
 class DetailPokemonVC : UIViewController {
     @IBOutlet weak var navigationView: UIView!
@@ -14,6 +15,28 @@ class DetailPokemonVC : UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBAction func backButtonPressed(_ sender: Any) {
         self.dismiss(animated: true)
+    }
+    @IBOutlet weak var catchPokemonButton: UIButton!
+    @IBAction func catchPokemonButtonPressed(_ sender: Any) {
+        let randomBool = Helpers.getRandomBool()
+        print("RANDOM \(randomBool)")
+        if randomBool{
+            Helpers.showFormAlert(pokemonName: self.pokemonDetail?.name ?? "") { myPokemon in
+                let pokemon = myPokemon
+                print("mypokemon = \(myPokemon.nickname)")
+                
+                var pokemonList: [MyPokemon] = Helpers.getMyPokemonList()
+                pokemonList.append(myPokemon)
+                
+                
+                print("mypokemon List : \(pokemonList)")
+                Helpers.saveMyPokemonList(pokemonList: pokemonList)
+            }
+            
+            
+        } else {
+            Helpers.showBottomToast(body: "Sorry you lost \(pokemonDetail?.name ?? ""), \(pokemonDetail?.name ?? "") FLEE")
+        }
     }
     
     @IBOutlet weak var frontImageView: UIImageView!
@@ -49,7 +72,7 @@ class DetailPokemonVC : UIViewController {
         pokemonHeightValueLabel.text = "\(pokemonDetail?.height ?? 0)"
         pokemonWeightValueLabel.text = "\(pokemonDetail?.weight ?? 0)"
         
-        guard 
+        guard
             let frontImageURL = URL(string: pokemonDetail?.sprites?.frontDefault ?? ""),
             let backImageURL = URL(string: pokemonDetail?.sprites?.backDefault ?? "")
         else {
@@ -75,7 +98,7 @@ class DetailPokemonVC : UIViewController {
         navigationView.layer.shadowRadius = 1
         navigationView.layer.shadowOpacity = 5
     }
-   
+    
 }
 
 extension DetailPokemonVC : UICollectionViewDelegate, UICollectionViewDataSource{
@@ -102,7 +125,7 @@ extension DetailPokemonVC : UICollectionViewDelegate, UICollectionViewDataSource
             return cell
         } else if collectionView == self.pokemonMoveCollectionView {
             let pokemonMove = pokemonDetail?.moves?[indexPath.row].move?.name ?? ""
-//            print("POKEMON MOVE : \(pokemonMove)")
+            //            print("POKEMON MOVE : \(pokemonMove)")
             cell.setUI(type: pokemonMove)
             return cell
         } else {

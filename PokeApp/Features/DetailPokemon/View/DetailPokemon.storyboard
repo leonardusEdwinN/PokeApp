@@ -35,12 +35,23 @@
                                             <action selector="backButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="MAf-db-dGw"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USJ-DH-mlm">
+                                        <rect key="frame" x="316" y="8" width="69" height="34"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Catch"/>
+                                        <connections>
+                                            <action selector="catchPokemonButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="vAo-M4-gxx"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="USJ-DH-mlm" firstAttribute="top" secondItem="deD-zI-wOg" secondAttribute="top" constant="8" id="4X4-ic-SNY"/>
                                     <constraint firstAttribute="height" constant="50" id="APs-Yf-Ura"/>
+                                    <constraint firstAttribute="bottom" secondItem="USJ-DH-mlm" secondAttribute="bottom" constant="8" id="PbT-Jg-Zdj"/>
                                     <constraint firstItem="UAu-Ze-9JG" firstAttribute="leading" secondItem="deD-zI-wOg" secondAttribute="leading" constant="8" id="Wai-n6-nqA"/>
                                     <constraint firstItem="bfL-jc-djc" firstAttribute="centerY" secondItem="deD-zI-wOg" secondAttribute="centerY" id="aQ4-L1-bSW"/>
+                                    <constraint firstAttribute="trailing" secondItem="USJ-DH-mlm" secondAttribute="trailing" constant="8" id="dSk-uc-MHx"/>
                                     <constraint firstItem="UAu-Ze-9JG" firstAttribute="centerY" secondItem="deD-zI-wOg" secondAttribute="centerY" id="y8f-ca-WAH"/>
                                     <constraint firstItem="bfL-jc-djc" firstAttribute="centerX" secondItem="deD-zI-wOg" secondAttribute="centerX" id="yyq-IQ-0ym"/>
                                 </constraints>
@@ -189,6 +200,7 @@
                     <connections>
                         <outlet property="backButton" destination="UAu-Ze-9JG" id="j1t-AW-D4z"/>
                         <outlet property="backImageView" destination="XHG-uq-PQa" id="gjJ-Z3-8T9"/>
+                        <outlet property="catchPokemonButton" destination="USJ-DH-mlm" id="TJE-2e-ScG"/>
                         <outlet property="frontImageView" destination="Sqy-vJ-475" id="tAI-Po-4aA"/>
                         <outlet property="navigationView" destination="deD-zI-wOg" id="6s6-kZ-uXg"/>
                         <outlet property="pokemonHeightValueLabel" destination="OLj-Mp-ahs" id="9si-ex-uHQ"/>

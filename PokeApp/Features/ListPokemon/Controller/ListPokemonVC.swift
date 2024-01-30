@@ -50,6 +50,7 @@ class ListPokemonVC : UIViewController{
         if segue.identifier == "GoToPokemonDetail"{
             if let destVC = segue.destination as? DetailPokemonVC {
                 destVC.pokemonDetail = listPokemonVM.getPokemon(at: self.selectedIndex)
+                destVC.modalPresentationStyle = .fullScreen
             }
         }
     }

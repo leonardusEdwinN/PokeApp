@@ -2,17 +2,21 @@ PODS:
   - SDWebImage (5.18.10):
     - SDWebImage/Core (= 5.18.10)
   - SDWebImage/Core (5.18.10)
+  - SwiftEntryKit (2.0.0)
 
 DEPENDENCIES:
   - SDWebImage
+  - SwiftEntryKit (= 2.0.0)
 
 SPEC REPOS:
   trunk:
     - SDWebImage
+    - SwiftEntryKit
 
 SPEC CHECKSUMS:
   SDWebImage: fc8f2d48bbfd72ef39d70e981bd24a3f3be53fec
+  SwiftEntryKit: 61b5fa36f34a97dd8013e48a7345bc4c4720be9a
 
-PODFILE CHECKSUM: 96316ebf8225e8d9ff19c7b1c1060280a5a0d7fa
+PODFILE CHECKSUM: 2a9d856b115b5707e279b96fbf71f8baeaa9c0c2
 
 COCOAPODS: 1.15.0
